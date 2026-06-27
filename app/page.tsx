@@ -203,7 +203,7 @@ export default function Home() {
           <p style={{ fontSize:14,color:"#4a4a4a",maxWidth:460,lineHeight:1.85,marginBottom:"2.5rem",fontWeight:300 }}>Whether you need a website, web app, or resilience tool — I am open to new projects right now.</p>
           <div style={{ display:"flex",flexWrap:"wrap",gap:12 }}>
             <a href="mailto:briangicovi@gmail.com" className="btn-p">Send me an email</a>
-            <a href="https://linkedin.com/in/briankarani" target="_blank" rel="noopener noreferrer" className="btn-g">LinkedIn</a>
+            <a href="https://www.linkedin.com/safety/go/?url=https%3A%2F%2Fow%2Ely%2F73WJ50Zeg27&urlhash=5_SG&mt=zF3JVDtELmFwcRszHFbHlktmR9UKsAkA6vC_yP8CzXkqn-T7yqebWcb9imyI-uSmY6yGsL22hP3r6XT9yghjtlvfsYZcOHh5K_Po_L_7YXTqoVAyDaF5Y6F-djY&isSdui=true" target="_blank" rel="noopener noreferrer" className="btn-g">LinkedIn</a>
             <a href="https://github.com/acelogicsystems" target="_blank" rel="noopener noreferrer" className="btn-g">GitHub</a>
           </div>
         </div>
