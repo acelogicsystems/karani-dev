@@ -53,7 +53,7 @@ export default function Services() {
                   <strong className="text-slate-700">Client profile:</strong> {service.clientProfile}
                 </p>
                 <a
-                  href={`https://wa.me/254700000000?text=Hello%20karani.dev,%20I'm%20inquiring%20about%20${encodeURIComponent(service.title)}.`}
+                  href={`https://wa.me/254711317540?text=Hello%20karani.dev,%20I'm%20inquiring%20about%20${encodeURIComponent(service.title)}.`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full py-2.5 px-4 rounded-lg bg-slate-100 hover:bg-slate-900 hover:text-white text-slate-800 text-xs font-semibold tracking-wide transition-all text-center block"

@@ -1,4 +1,5 @@
 import React from 'react';
+import { siteConfig } from '../data/config';
 
 export default function Hero() {
   return (
@@ -28,14 +29,17 @@ export default function Hero() {
 
           {/* Actions */}
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
-            <a
-              href="https://wa.me/+254711317540?text=Hello%20karani.dev,%20I%20have%20a%20project%20inquiry."
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-8 py-4 rounded-xl bg-slate-900 text-white font-semibold text-sm hover:bg-emerald-700 transition-all text-center shadow-sm"
-            >
-              Discuss a Project on WhatsApp
-            </a>
+          import { siteConfig } from '../data/config';
+
+// In the primary action:
+    <a
+      href={`https://wa.me/${siteConfig.whatsappNumber}?text=Hello%20Karani%20Systems,%20I%20have%20a%20project%20inquiry.`}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="px-8 py-4 rounded-xl bg-slate-900 text-white font-semibold text-sm hover:bg-emerald-700 transition-all text-center shadow-sm"
+    >
+      Discuss a Project on WhatsApp
+    </a>
             <a
               href="#services"
               className="px-8 py-4 rounded-xl border border-slate-300 bg-slate-50 hover:bg-slate-100 text-slate-800 font-semibold text-sm transition-all text-center"

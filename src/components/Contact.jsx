@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 import { MessageSquare, Check, Send } from 'lucide-react';
+import { siteConfig } from '../data/config';
 
 export default function Contact() {
   const [selectedService, setSelectedService] = useState('Website & M-Pesa');
   const [timeline, setTimeline] = useState('Within 2-4 weeks');
   const [notes, setNotes] = useState('');
 
-  // Replace with your real Kenyan WhatsApp business or personal phone number
-  const WHATSAPP_NUMBER = "254711317540"; 
 
   const services = [
     'Website & M-Pesa Integration',
@@ -25,8 +24,9 @@ export default function Contact() {
   const handleSendWhatsApp = (e) => {
     e.preventDefault();
     const message = `Hello Karani Systems,%0A%0AI want to discuss a project:%0A- *Service:* ${selectedService}%0A- *Timeline:* ${timeline}%0A${notes ? `- *Brief Details:* ${notes}%0A` : ''}%0ALet's talk.`;
-    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${message}`, '_blank');
-  };
+    // In handleSendWhatsApp:
+     window.open(`https://wa.me/${siteConfig.whatsappNumber}?text=${message}`, '_blank');
+      };
 
   return (
     <section id="contact" className="py-24 bg-white border-t border-slate-200">

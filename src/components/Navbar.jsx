@@ -1,5 +1,6 @@
 import React from 'react';
 import Logo from './Logo';
+import { siteConfig } from '../data/config';
 
 export default function Navbar() {
   return (
@@ -15,14 +16,15 @@ export default function Navbar() {
   <a href="#contact" className="hover:text-slate-900 transition-colors">Contact</a>
 </nav>
 
-        <a
-          href="https://wa.me/+254711317540?text=Hello%20karani.dev,%20I%20would%20like%20to%20discuss%20a%20project."
-          target="_blank"
-          rel="noopener noreferrer"
-          className="px-5 py-2.5 rounded-lg text-xs font-semibold uppercase tracking-wider bg-slate-900 text-white hover:bg-emerald-700 transition-all shadow-sm"
-        >
-          Work With Us
-        </a>
+
+      <a
+        href={`https://wa.me/${siteConfig.whatsappNumber}?text=Hello%20Karani%20Systems,%20I%20would%20like%20to%20discuss%20a%20project.`}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="px-5 py-2.5 rounded-lg text-xs font-semibold uppercase tracking-wider bg-slate-900 text-white hover:bg-emerald-700 transition-all shadow-sm"
+      >
+        Work With Us
+      </a>
       </div>
     </header>
   );

@@ -87,7 +87,7 @@ export default function CaseStudies() {
                   </div>
 
                   <a
-                    href={`https://wa.me/254700000000?text=Hello%20karani-systems,%20I%20want%20something%20like%20${encodeURIComponent(project.title)}.`}
+                    href={`https://wa.me/254711317540?text=Hello%20karani-systems,%20I%20want%20something%20like%20${encodeURIComponent(project.title)}.`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-full py-3 px-4 rounded-lg bg-slate-900 hover:bg-emerald-700 text-white text-xs font-semibold tracking-wider uppercase transition-all flex items-center justify-center gap-2"
