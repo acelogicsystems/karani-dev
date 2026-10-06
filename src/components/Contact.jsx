@@ -7,7 +7,7 @@ export default function Contact() {
   const [notes, setNotes] = useState('');
 
   // Replace with your real Kenyan WhatsApp business or personal phone number
-  const WHATSAPP_NUMBER = "254700000000"; 
+  const WHATSAPP_NUMBER = "254711317540"; 
 
   const services = [
     'Website & M-Pesa Integration',

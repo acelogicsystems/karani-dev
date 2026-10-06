@@ -16,7 +16,7 @@ export default function Navbar() {
 </nav>
 
         <a
-          href="https://wa.me/254711317540?text=Hello%20karani.dev,%20I%20would%20like%20to%20discuss%20a%20project."
+          href="https://wa.me/+254711317540?text=Hello%20karani.dev,%20I%20would%20like%20to%20discuss%20a%20project."
           target="_blank"
           rel="noopener noreferrer"
           className="px-5 py-2.5 rounded-lg text-xs font-semibold uppercase tracking-wider bg-slate-900 text-white hover:bg-emerald-700 transition-all shadow-sm"
