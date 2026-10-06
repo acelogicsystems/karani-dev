@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://karani-systems.pages.dev/sitemap.xml
