@@ -3,6 +3,7 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Services from './components/Services';
 import CaseStudies from './components/CaseStudies';
+import Contact from './components/Contact';
 
 export default function App() {
   return (
@@ -12,6 +13,7 @@ export default function App() {
         <Hero />
         <Services />
         <CaseStudies />
+        <Contact />
       </main>
       <footer className="border-t border-slate-200 py-12 bg-white">
         <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-500 font-mono">
