@@ -10,10 +10,10 @@ export default function Navbar() {
         </a>
 
         <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
-          <a href="#services" className="hover:text-slate-900 transition-colors">Services</a>
-          <a href="#credentials" className="hover:text-slate-900 transition-colors">Standards</a>
-          <a href="#contact" className="hover:text-slate-900 transition-colors">Contact</a>
-        </nav>
+  <a href="#services" className="hover:text-slate-900 transition-colors">Services</a>
+  <a href="#work" className="hover:text-slate-900 transition-colors">Case Studies</a>
+  <a href="#contact" className="hover:text-slate-900 transition-colors">Contact</a>
+</nav>
 
         <a
           href="https://wa.me/254700000000?text=Hello%20karani.dev,%20I%20would%20like%20to%20discuss%20a%20project."
