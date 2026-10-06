@@ -2,6 +2,7 @@ import React from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Services from './components/Services';
+import Standards from './components/Standards';
 import CaseStudies from './components/CaseStudies';
 import Contact from './components/Contact';
 import { siteConfig } from './data/config';
@@ -13,6 +14,7 @@ export default function App() {
       <main className="flex-1">
         <Hero />
         <Services />
+        <Standards />
         <CaseStudies />
         <Contact />
       </main>
