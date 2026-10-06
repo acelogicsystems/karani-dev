@@ -1,5 +1,6 @@
 import React from 'react';
 import { projects } from '../data/projects';
+import { siteConfig } from '../data/config';
 import { ArrowUpRight, CheckCircle2 } from 'lucide-react';
 
 export default function CaseStudies() {
@@ -7,29 +8,27 @@ export default function CaseStudies() {
     <section id="work" className="py-24 bg-white border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-6">
         
-      {/* Section Header */}
-<div className="max-w-2xl mb-16">
-  <p className="text-emerald-700 text-xs font-mono font-semibold tracking-widest uppercase mb-3">
-    Our Work
-  </p>
-  <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-slate-900 mb-4">
-    Real projects. <br />
-    Simple solutions that work.
-  </h2>
-  <p className="text-slate-600 text-base leading-relaxed">
-    See how we help Kenyan businesses collect payments, map field data, and run operations without headaches.
-  </p>
-</div>
-        {/* Case Studies Stack */}
+        <div className="max-w-2xl mb-16">
+          <p className="text-emerald-700 text-xs font-mono font-semibold tracking-widest uppercase mb-3">
+            Our Work
+          </p>
+          <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-slate-900 mb-4">
+            Real projects. <br />
+            Simple solutions that work.
+          </h2>
+          <p className="text-slate-600 text-base leading-relaxed">
+            See how we help Kenyan businesses collect payments, map field data, and run operations without headaches.
+          </p>
+        </div>
+
         <div className="space-y-12">
-          {projects.map((project, index) => (
+          {projects.map((project) => (
             <div 
               key={project.id}
               className="rounded-2xl border border-slate-200 bg-slate-50/50 p-8 md:p-12 hover:border-slate-300 transition-all duration-300"
             >
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
                 
-                {/* Left Overview Column */}
                 <div className="lg:col-span-7 space-y-6">
                   <div className="flex flex-wrap items-center gap-3">
                     <span className="px-3 py-1 rounded-full bg-white border border-slate-200 text-slate-800 text-xs font-mono font-medium">
@@ -48,7 +47,6 @@ export default function CaseStudies() {
                     {project.description}
                   </p>
 
-                  {/* Key Architecture Features */}
                   <div className="space-y-2.5 pt-2">
                     {project.features.map((feature, fIdx) => (
                       <div key={fIdx} className="flex items-start gap-2.5 text-sm text-slate-700">
@@ -58,7 +56,6 @@ export default function CaseStudies() {
                     ))}
                   </div>
 
-                  {/* Tech Pill List */}
                   <div className="pt-4 flex flex-wrap gap-2">
                     {project.stack.map((tech, tIdx) => (
                       <span 
@@ -71,10 +68,9 @@ export default function CaseStudies() {
                   </div>
                 </div>
 
-                {/* Right Metrics & Action Column */}
                 <div className="lg:col-span-5 bg-white border border-slate-200 rounded-xl p-6 md:p-8 space-y-6">
                   <p className="text-xs font-mono uppercase tracking-wider text-slate-500 font-semibold border-b border-slate-100 pb-3">
-                    Performance Standards
+                    Results
                   </p>
 
                   <div className="grid grid-cols-1 gap-4">
@@ -87,7 +83,7 @@ export default function CaseStudies() {
                   </div>
 
                   <a
-                    href={`https://wa.me/254711317540?text=Hello%20karani-systems,%20I%20want%20something%20like%20${encodeURIComponent(project.title)}.`}
+                    href={`https://wa.me/${siteConfig.whatsappNumber}?text=Hello%20${encodeURIComponent(siteConfig.name)},\%20I'm\%20interested\%20in\%20a\%20solution\%20similar\%20to\%20${encodeURIComponent(project.title)}.`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-full py-3 px-4 rounded-lg bg-slate-900 hover:bg-emerald-700 text-white text-xs font-semibold tracking-wider uppercase transition-all flex items-center justify-center gap-2"

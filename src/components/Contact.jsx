@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
-import { MessageSquare, Check, Send } from 'lucide-react';
+import { MessageSquare, Check } from 'lucide-react';
 import { siteConfig } from '../data/config';
 
 export default function Contact() {
   const [selectedService, setSelectedService] = useState('Website & M-Pesa');
   const [timeline, setTimeline] = useState('Within 2-4 weeks');
   const [notes, setNotes] = useState('');
-
 
   const services = [
     'Website & M-Pesa Integration',
@@ -23,16 +22,14 @@ export default function Contact() {
 
   const handleSendWhatsApp = (e) => {
     e.preventDefault();
-    const message = `Hello Karani Systems,%0A%0AI want to discuss a project:%0A- *Service:* ${selectedService}%0A- *Timeline:* ${timeline}%0A${notes ? `- *Brief Details:* ${notes}%0A` : ''}%0ALet's talk.`;
-    // In handleSendWhatsApp:
-     window.open(`https://wa.me/${siteConfig.whatsappNumber}?text=${message}`, '_blank');
-      };
+    const message = `Hello ${siteConfig.name},\%0A\%0AI want to discuss a project:\%0A- *Service:*${selectedService}%0A- *Timeline:* ${timeline}\%0A${notes ? `- *Brief Details:* ${notes}%0A` : ''}%0ALet's talk.`;
+    window.open(`https://wa.me/${siteConfig.whatsappNumber}?text=${message}`, '_blank');
+  };
 
   return (
     <section id="contact" className="py-24 bg-white border-t border-slate-200">
       <div className="max-w-4xl mx-auto px-6">
         
-        {/* Header */}
         <div className="text-center max-w-xl mx-auto mb-12">
           <p className="text-emerald-700 text-xs font-mono font-semibold tracking-widest uppercase mb-2">
             Start A Project
@@ -42,16 +39,14 @@ export default function Contact() {
             We talk directly on WhatsApp.
           </h2>
           <p className="text-slate-600 text-sm">
-            Select what you are looking for, hit the button, and we will reply promptly with timelines and next steps.
+            Pick what you are looking for, hit the button, and we will reply promptly with timelines and details.
           </p>
         </div>
 
-        {/* Interactive Box */}
         <form 
           onSubmit={handleSendWhatsApp}
           className="bg-slate-50 border border-slate-200 rounded-2xl p-6 md:p-10 shadow-sm"
         >
-          {/* Service Selection */}
           <div className="mb-8">
             <label className="block text-xs font-mono font-semibold uppercase text-slate-700 mb-3">
               1. What type of solution do you need?
@@ -75,10 +70,9 @@ export default function Contact() {
             </div>
           </div>
 
-          {/* Timeline Selection */}
           <div className="mb-8">
             <label className="block text-xs font-mono font-semibold uppercase text-slate-700 mb-3">
-              2. When do you need this running?
+              2. When do you need this ready?
             </label>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
               {timelines.map((item) => (
@@ -98,7 +92,6 @@ export default function Contact() {
             </div>
           </div>
 
-          {/* Optional Short Description */}
           <div className="mb-8">
             <label className="block text-xs font-mono font-semibold uppercase text-slate-700 mb-3">
               3. Any specific requirements? (Optional)
@@ -112,7 +105,6 @@ export default function Contact() {
             />
           </div>
 
-          {/* Submit / WhatsApp Launch Button */}
           <button
             type="submit"
             className="w-full py-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-sm transition-all flex items-center justify-center gap-2 shadow-sm"
@@ -122,7 +114,7 @@ export default function Contact() {
           </button>
 
           <p className="text-center text-[11px] text-slate-500 font-mono mt-4">
-            Direct chat • Nairobi, Kenya • Fast response
+            Direct chat • {siteConfig.location} • Fast response
           </p>
         </form>
 

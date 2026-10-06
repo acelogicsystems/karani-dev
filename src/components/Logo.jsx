@@ -19,7 +19,7 @@ export default function Logo({ className = "h-8" }) {
         <polygon points="175,160 230,110 205,85 130,155 205,225 230,200" fill="#059669" />
       </svg>
       <span className="font-bold tracking-tight text-xl text-slate-900">
-        karani<span className="text-emerald-600">.dev</span>
+        karani<span className="text-emerald-700"> systems</span>
       </span>
     </div>
   );

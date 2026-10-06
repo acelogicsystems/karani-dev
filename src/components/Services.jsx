@@ -1,5 +1,6 @@
 import React from 'react';
 import { servicePackages } from '../data/services';
+import { siteConfig } from '../data/config';
 
 export default function Services() {
   return (
@@ -8,14 +9,13 @@ export default function Services() {
         
         <div className="max-w-2xl mb-16">
           <p className="text-emerald-700 text-xs font-mono font-semibold tracking-widest uppercase mb-3">
-            Core Solutions
+            What We Build
           </p>
           <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-slate-900 mb-4">
-            Engineered for reliability. <br />
-            <span className="text-emerald-700">Forged for the field.</span>
+            Reliable software for real operations.
           </h2>
           <p className="text-slate-600 text-base leading-relaxed">
-            Practical digital platforms, geospatial analysis, and field-ready data pipelines designed to work flawlessly in the Kenyan operating environment.
+            Practical digital platforms, mapping tools, and data pipelines built to handle everyday Kenyan field and business conditions.
           </p>
         </div>
 
@@ -50,10 +50,10 @@ export default function Services() {
 
               <div className="pt-6 border-t border-slate-100">
                 <p className="text-[11px] font-mono text-slate-500 mb-4">
-                  <strong className="text-slate-700">Client profile:</strong> {service.clientProfile}
+                  <strong className="text-slate-700">Best for:</strong> {service.clientProfile}
                 </p>
                 <a
-                  href={`https://wa.me/254711317540?text=Hello%20karani.dev,%20I'm%20inquiring%20about%20${encodeURIComponent(service.title)}.`}
+                  href={`https://wa.me/${siteConfig.whatsappNumber}?text=Hello%20${encodeURIComponent(siteConfig.name)},\%20I'm\%20inquiring\%20about\%20${encodeURIComponent(service.title)}.`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full py-2.5 px-4 rounded-lg bg-slate-100 hover:bg-slate-900 hover:text-white text-slate-800 text-xs font-semibold tracking-wide transition-all text-center block"

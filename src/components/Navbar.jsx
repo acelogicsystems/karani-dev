@@ -11,20 +11,19 @@ export default function Navbar() {
         </a>
 
         <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
-  <a href="#services" className="hover:text-slate-900 transition-colors">Services</a>
-  <a href="#work" className="hover:text-slate-900 transition-colors">Case Studies</a>
-  <a href="#contact" className="hover:text-slate-900 transition-colors">Contact</a>
-</nav>
+          <a href="#services" className="hover:text-slate-900 transition-colors">Services</a>
+          <a href="#work" className="hover:text-slate-900 transition-colors">Case Studies</a>
+          <a href="#contact" className="hover:text-slate-900 transition-colors">Contact</a>
+        </nav>
 
-
-      <a
-        href={`https://wa.me/${siteConfig.whatsappNumber}?text=Hello%20Karani%20Systems,%20I%20would%20like%20to%20discuss%20a%20project.`}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="px-5 py-2.5 rounded-lg text-xs font-semibold uppercase tracking-wider bg-slate-900 text-white hover:bg-emerald-700 transition-all shadow-sm"
-      >
-        Work With Us
-      </a>
+        <a
+          href={`https://wa.me/${siteConfig.whatsappNumber}?text=Hello\%20${encodeURIComponent(siteConfig.name)},%20I%20would%20like%20to%20discuss%20a%20project.`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="px-5 py-2.5 rounded-lg text-xs font-semibold uppercase tracking-wider bg-slate-900 text-white hover:bg-emerald-700 transition-all shadow-sm"
+        >
+          Work With Us
+        </a>
       </div>
     </header>
   );
