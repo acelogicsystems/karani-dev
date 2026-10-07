@@ -82,14 +82,26 @@ export default function CaseStudies() {
                     ))}
                   </div>
 
-                  <a
-                    href={`https://wa.me/${siteConfig.whatsappNumber}?text=Hello%20${encodeURIComponent(siteConfig.name)},\%20I'm\%20interested\%20in\%20a\%20solution\%20similar\%20to\%20${encodeURIComponent(project.title)}.`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full py-3 px-4 rounded-lg bg-slate-900 hover:bg-emerald-700 text-white text-xs font-semibold tracking-wider uppercase transition-all flex items-center justify-center gap-2"
-                  >
-                    Talk to us about this <ArrowUpRight className="w-4 h-4" />
-                  </a>
+                  <div className="flex flex-col sm:flex-row gap-3 pt-2">
+  {project.liveUrl && (
+    <a
+      href={project.liveUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="py-3 px-4 rounded-lg border border-slate-300 bg-white hover:bg-slate-100 text-slate-800 text-xs font-semibold tracking-wider uppercase transition-all flex items-center justify-center gap-1.5"
+    >
+      Live Demo <ArrowUpRight className="w-3.5 h-3.5" />
+    </a>
+  )}
+  <a
+    href={`https://wa.me/${siteConfig.whatsappNumber}?text=Hello%20${encodeURIComponent(siteConfig.name)},%20I'm%20interested%20in%20a%20solution%20similar%20to%20${encodeURIComponent(project.title)}.`}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="flex-1 py-3 px-4 rounded-lg bg-slate-900 hover:bg-emerald-700 text-white text-xs font-semibold tracking-wider uppercase transition-all flex items-center justify-center gap-2"
+  >
+    Talk to us about this <ArrowUpRight className="w-4 h-4" />
+  </a>
+</div>
                 </div>
 
               </div>

@@ -1,62 +1,86 @@
 export const projects = [
   {
+    id: "imaragrid-platform",
+    badge: "Disaster Risk & ClimateTech",
+    title: "ImaraGrid — Climate Resilience & Early Warning System",
+    clientSector: "DRM Agencies & Climate Practitioners",
+    description: "An early warning and risk intelligence portal turning multi-source environmental indices into actionable alerts and vulnerability mapping for high-risk zones.",
+    metrics: [
+      { label: "Alert Latency", value: "<30 Seconds" },
+      { label: "Data Granularity", value: "Sub-County Level" },
+      { label: "Availability", value: "99.9% Uptime" }
+    ],
+    features: [
+      "Dynamic risk-level zoning maps with automated severity indicators",
+      "Low-bandwidth alerts accessible on mobile browsers across arid regions",
+      "Interactive hazard overlay with rainfall and flood assessment models",
+      "Exportable summary briefs for disaster response coordination"
+    ],
+    stack: ["React", "FastAPI", "Python", "Leaflet", "Tailwind CSS"],
+    status: "Live & Validated",
+    liveUrl: "https://imaragrid.vercel.app"
+  },
+  {
+    id: "kilimocast-advisory",
+    badge: "AgriTech & Rural Access",
+    title: "KilimoCast — Hyperlocal Weather & Advisory Engine",
+    clientSector: "Kenyan Smallholder Farmers & Cooperatives",
+    description: "Built to bridge the gap between meteorological data and smallholder farming decisions. Combines localized weather forecasting with simple agronomic advisory messaging.",
+    metrics: [
+      { label: "Advisory Turnaround", value: "Daily Sync" },
+      { label: "Network Footprint", value: "Ultra-Lightweight" },
+      { label: "Farmer Usability", value: "Zero Training" }
+    ],
+    features: [
+      "Ward-level precipitation and temperature advisory snapshots",
+      "Built-in USSD workflow simulation for feature phone accessibility",
+      "Clean agronomic tips tailored to seasonal planting cycles",
+      "Lightweight data payload designed for 2G/3G mobile networks"
+    ],
+    stack: ["React", "TypeScript", "Weather APIs", "Tailwind CSS"],
+    status: "Production Demo",
+    liveUrl: ""
+  },
+  {
     id: "booking-commerce",
-    badge: "Business Website & Payments",
-    title: "Online Booking with Instant M-Pesa",
-    clientSector: "Kenyan Businesses & Service Providers",
-    description: "Built for businesses tired of taking bookings over phone calls and tracking payments by hand. Customers pick a date, pay via M-Pesa STK push, and get an instant confirmation message.",
+    badge: "SME Operations & FinTech",
+    title: "Commercial Booking & Instant M-Pesa Engine",
+    clientSector: "Kenyan SMEs & Service Businesses",
+    description: "Replaced manual phone call bookings and manual MPESA message tracking with automated reservation scheduling and STK push verification.",
     metrics: [
-      { label: "Payment Verification", value: "Instant M-Pesa" },
-      { label: "Double Bookings", value: "0" },
-      { label: "Page Load Speed", value: "Under 2 Seconds" }
+      { label: "Payment Verification", value: "Instant STK" },
+      { label: "Scheduling Friction", value: "-80%" },
+      { label: "Load Speed", value: "<1.2s" }
     ],
     features: [
-      "Customers pay instantly on their phone with M-Pesa prompt (STK Push)",
-      "Calendar automatically blocks booked slots so no one overlaps",
-      "Sends instant confirmation text messages to both you and the customer",
-      "Simple admin dashboard to see daily sales and customer contacts"
+      "Daraja M-Pesa STK push with automated callback confirmation",
+      "Conflict-free calendar booking engine with zero overlapping slots",
+      "Automated WhatsApp notification trigger upon confirmed payment",
+      "Protected admin panel for daily sales, revenue, and customer history"
     ],
-    stack: ["React", "Daraja M-Pesa", "Node.js", "Tailwind CSS"],
-    status: "Ready to Deploy"
+    stack: ["React", "Node.js", "Daraja API", "PostgreSQL", "Tailwind CSS"],
+    status: "Ready to Deploy",
+    liveUrl: ""
   },
   {
-    id: "spatial-hazard",
-    badge: "Maps & Spatial Data",
-    title: "Interactive Weather & Drought Map",
-    clientSector: "Farming, Climate & Field Teams",
-    description: "An interactive online map that shows live rainfall, dry areas, and drought risks across Kenyan counties. Easy to use on phones and laptops, even with slow internet.",
+    id: "kobo-field-pipeline",
+    badge: "Field Operations & M&E",
+    title: "Offline Field Data Pipeline (KoboToolbox & ODK)",
+    clientSector: "NGOs, Research Programs & Field Surveys",
+    description: "Paperless data capture systems built for enumerators in remote areas. Captures geo-coordinates and surveys offline, then cleans and syncs records straight to cloud tables.",
     metrics: [
-      { label: "Map Detail", value: "Sub-County Level" },
-      { label: "Internet Use", value: "Very Low Data" },
-      { label: "Updates", value: "Automatic" }
-    ],
-    features: [
-      "Clickable map showing county and ward boundaries",
-      "Clear color codes showing flood or drought risks",
-      "Works smoothly even when the connection is 3G or poor",
-      "Download reports and map snapshots with one click"
-    ],
-    stack: ["React", "Leaflet Maps", "GIS Data", "Python"],
-    status: "Tested & Working"
-  },
-  {
-    id: "kobo-resilience",
-    badge: "Field Surveys & Data",
-    title: "Offline Field Data Collection with KoboToolbox",
-    clientSector: "NGOs, Researchers & Field Projects",
-    description: "Set up fast digital forms for field teams to replace paper surveys. Works completely offline in remote villages, saves GPS coordinates, and sends all data to a clean dashboard when back online.",
-    metrics: [
-      { label: "Offline Mode", value: "100% Works" },
+      { label: "Offline Mode", value: "100% Reliable" },
       { label: "Lost Paper Forms", value: "0" },
-      { label: "Data Export", value: "Excel / PDF" }
+      { label: "Export Format", value: "Excel / SQL / API" }
     ],
     features: [
-      "Custom forms on KoboToolbox with smart questions and skip logic",
-      "Takes GPS locations and photos directly from the field phone",
-      "No data lost if the agent loses network in rural areas",
-      "Automated summary tables for weekly and donor reports"
+      "Structured XLSForm logic with smart skips and strict validation rules",
+      "Field GPS coordinate capture and photo documentation without signal",
+      "Automated REST API pipeline syncing Kobo submissions to databases",
+      "Automated clean summaries for donor reporting and monitoring"
     ],
-    stack: ["KoboToolbox", "ODK Forms", "Excel / Power BI", "APIs"],
-    status: "Active in the Field"
+    stack: ["KoboToolbox", "XLSForm", "REST APIs", "Power BI"],
+    status: "Operational",
+    liveUrl: ""
   }
 ];
