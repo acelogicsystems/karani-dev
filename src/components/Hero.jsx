@@ -74,9 +74,9 @@ export default function Hero() {
               <div className="relative w-full h-[430px] sm:h-[480px] rounded-t-[100px] rounded-b-[40px] overflow-hidden bg-slate-900 shadow-2xl border border-slate-200">
                 {/* Authentic overhead/collaborative engineering photo without face prominence */}
                 <img 
-                  src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1200&q=80" 
-                  alt="African software engineering team collaboration" 
-                  className="w-full h-full object-cover opacity-75 hover:scale-105 transition-transform duration-700 filter brightness-95 contrast-105"
+                   src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80" 
+                   alt="Software development and systems engineering workstation" 
+                  className="w-full h-full object-cover opacity-80 hover:scale-105 transition-transform duration-700"
                 />
 
                 {/* Subtle dark gradient overlay for text readability */}
