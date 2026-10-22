@@ -1,81 +1,78 @@
 import React from 'react';
-import { Zap, ShieldCheck, WifiOff, Smartphone, RefreshCw, Server } from 'lucide-react';
+import { ShieldCheck, Zap, Code2, Wifi } from 'lucide-react';
+
+const commitments = [
+  {
+    num: "01",
+    title: "Zero Lost Payments",
+    metric: "100% Reconciliation",
+    description: "Every M-Pesa STK push and Stripe payment is verified with automated callback queues and instant ledger logs. If a customer's network cuts out mid-transaction, our retry logic recovers it so no payment ever goes missing."
+  },
+  {
+    num: "02",
+    title: "Fast on Low Bundles & 3G",
+    metric: "< 1s Mobile Loads",
+    description: "We don't build bloated websites that drain customer data. Every image, script, and font is compressed so your pages open instantly, even on weak mobile connections outside major towns."
+  },
+  {
+    num: "03",
+    title: "Total Code & Asset Ownership",
+    metric: "Zero Vendor Lock-in",
+    description: "When the project is done, you receive complete access to your GitHub repositories, domain records, hosting accounts, and database credentials. You are never held hostage by proprietary setups."
+  },
+  {
+    num: "04",
+    title: "Field-Tested Under Real Conditions",
+    metric: "Offline-Ready Tools",
+    description: "We test forms, maps, and dashboards on real mobile devices and simulated poor connectivity. If your field staff lose cell coverage, data stays safe offline until they reconnect."
+  }
+];
 
 export default function Standards() {
-  const standards = [
-    {
-      icon: <Zap className="w-6 h-6 text-emerald-600" />,
-      title: "Built for Mobile Data",
-      subtitle: "Instant loads on 3G & 4G",
-      description: "Optimized bundle sizes, aggressive caching, and compressed vector assets ensure pages open within seconds even on low-tier data connections across Kenya."
-    },
-    {
-      icon: <ShieldCheck className="w-6 h-6 text-emerald-600" />,
-      title: "Hardened Daraja M-Pesa",
-      subtitle: "Zero missed transactions",
-      description: "Built-in webhook validation, idempotency keys, and automated reconciliation prevent dropped payment notifications and duplicate checkout prompts."
-    },
-    {
-      icon: <WifiOff className="w-6 h-6 text-emerald-600" />,
-      title: "Offline-First Data Capture",
-      subtitle: "Zero lost field records",
-      description: "Mobile surveys and operational logs store locally on the device when working out of network coverage and sync cleanly once an uplink is established."
-    },
-    {
-      icon: <Smartphone className="w-6 h-6 text-emerald-600" />,
-      title: "Mobile-First Design",
-      subtitle: "Engineered for smartphones first",
-      description: "Every layout, map view, and administrative form is designed and tested for thumbs, small phone screens, and high-glare outdoor environments."
-    },
-    {
-      icon: <RefreshCw className="w-6 h-6 text-emerald-600" />,
-      title: "Automated Data Pipelines",
-      subtitle: "Clean exports to Excel & SQL",
-      description: "Direct REST API integrations feed KoboToolbox, billing systems, and CRM logs directly into analytical spreadsheets and databases without manual entry."
-    },
-    {
-      icon: <Server className="w-6 h-6 text-emerald-600" />,
-      title: "Edge Cloud Reliability",
-      subtitle: "99.9% uptime with global CDN",
-      description: "Hosted across decentralized edge networks with localized routing nodes in East Africa, eliminating single points of failure."
-    }
-  ];
-
   return (
-    <section id="standards" className="py-24 bg-slate-50 border-b border-slate-200">
-      <div className="max-w-7xl mx-auto px-6">
+    <section className="bg-white py-24 sm:py-28 px-4 sm:px-6 lg:px-8 border-b border-[#E8E2D5]">
+      <div className="max-w-7xl mx-auto">
         
         {/* Section Header */}
-        <div className="max-w-2xl mb-16">
-          <p className="text-emerald-700 text-xs font-mono font-semibold tracking-widest uppercase mb-3">
-            Engineering Standards
-          </p>
-          <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-slate-900 mb-4">
-            Built to work when it matters.
+        <div className="max-w-3xl mb-16">
+          <div className="flex items-center gap-2 text-[11px] font-mono uppercase tracking-widest text-[#D95D39] font-bold mb-3">
+            <span>Our Approach</span>
+            <span className="text-[#E8E2D5]">/</span>
+            <span className="text-[#4A5B52]">How We Work</span>
+          </div>
+          <h2 className="text-3xl sm:text-5xl font-extrabold text-[#15221B] tracking-tight leading-tight">
+            How we build: clear rules, zero guesswork.
           </h2>
-          <p className="text-slate-600 text-base leading-relaxed">
-            Local applications fail when built purely for office Wi-Fi. Our technical baseline is engineered for real Kenyan infrastructure.
+          <p className="mt-4 text-base sm:text-lg text-[#4A5B52] leading-relaxed">
+            We hold our engineering to four direct operational commitments so you know what you are paying for from day one.
           </p>
         </div>
 
-        {/* Bento Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {standards.map((item, idx) => (
-            <div
-              key={idx}
-              className="bg-white border border-slate-200 rounded-2xl p-8 hover:border-slate-300 transition-all duration-200 flex flex-col justify-between"
+        {/* The Architectural Ledger (Horizontal Row Layout, No Cards) */}
+        <div className="border-t border-[#15221B]">
+          {commitments.map((item) => (
+            <div 
+              key={item.num}
+              className="group py-8 sm:py-10 border-b border-[#E8E2D5] flex flex-col lg:flex-row lg:items-start justify-between gap-6 hover:bg-[#FBF9F5] px-2 sm:px-4 -mx-2 sm:-mx-4 transition-colors duration-200"
             >
-              <div>
-                <div className="w-12 h-12 rounded-xl bg-emerald-50 border border-emerald-100 flex items-center justify-center mb-6">
-                  {item.icon}
+              {/* Left Column: Number + Rule Title */}
+              <div className="lg:w-1/3 flex items-start gap-4 sm:gap-6">
+                <span className="font-mono text-sm font-bold text-[#D95D39] tracking-wider pt-0.5">
+                  [{item.num}]
+                </span>
+                <div>
+                  <h3 className="text-xl sm:text-2xl font-bold text-[#15221B] tracking-tight group-hover:text-[#0B5338] transition-colors">
+                    {item.title}
+                  </h3>
+                  <span className="inline-block mt-1 text-[11px] font-mono text-[#4A5B52] font-semibold bg-[#F3EFE6] px-2 py-0.5 rounded border border-[#E8E2D5]">
+                    {item.metric}
+                  </span>
                 </div>
-                <h3 className="text-lg font-bold text-slate-900 mb-1">
-                  {item.title}
-                </h3>
-                <p className="text-xs font-mono text-emerald-700 font-semibold mb-3">
-                  {item.subtitle}
-                </p>
-                <p className="text-slate-600 text-sm leading-relaxed">
+              </div>
+
+              {/* Right Column: Narrative Detail */}
+              <div className="lg:w-2/3 lg:pl-10">
+                <p className="text-sm sm:text-base text-[#4A5B52] leading-relaxed max-w-3xl">
                   {item.description}
                 </p>
               </div>
