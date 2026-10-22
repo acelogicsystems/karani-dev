@@ -3,27 +3,24 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Services from './components/Services';
 import Standards from './components/Standards';
-import CaseStudies from './components/CaseStudies';
+import Projects from './components/Projects';
 import Contact from './components/Contact';
-import { siteConfig } from './data/config';
+import Footer from './components/Footer';
+import FloatingWhatsApp from './components/FloatingWhatsApp';
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-900 flex flex-col font-sans">
+    <div className="min-h-screen bg-slate-950 text-slate-100 font-sans">
       <Navbar />
-      <main className="flex-1">
+      <main>
         <Hero />
         <Services />
         <Standards />
-        <CaseStudies />
+        <Projects />
         <Contact />
       </main>
-      <footer className="border-t border-slate-200 py-12 bg-white">
-        <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-500 font-mono">
-          <p>© {new Date().getFullYear()} {siteConfig.name}. All rights reserved.</p>
-          <p>{siteConfig.location} • Digital Engineering & Field Infrastructure</p>
-        </div>
-      </footer>
+      <Footer />
+      <FloatingWhatsApp />
     </div>
   );
 }

@@ -1,118 +1,80 @@
 import React from 'react';
-import { ArrowUpRight, Sparkles } from 'lucide-react';
-import { siteConfig } from '../data/config';
+import { ArrowDown, Sparkles, MapPin } from 'lucide-react';
 
 export default function Hero() {
-  const whatsappUrl = `https://wa.me/${siteConfig.whatsappNumber}?text=Hello%20${encodeURIComponent(siteConfig.name)},%20I'd%20like%20to%20discuss%20an%20engineering%20project.`;
-
   return (
-    <section className="relative bg-white pt-28 pb-16 md:pt-36 md:pb-24 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center">
-          
-          {/* Left Column: Personality & Punchy Content */}
-          <div className="lg:col-span-7 space-y-6">
-            
-            {/* Top Pill Badge */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900 text-white text-xs font-semibold tracking-wide shadow-sm">
-              <Sparkles className="w-3.5 h-3.5 text-emerald-400" />
-              <span>We build systems that work in the real world</span>
-            </div>
-
-            {/* Headline */}
-            <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight text-slate-900 leading-[1.1]">
-              A Digital Engineering &{' '}
-              <span className="text-emerald-700">Field Tech Studio</span> based in Nairobi
-            </h1>
-
-            {/* Subheading */}
-            <p className="text-base sm:text-lg text-slate-600 max-w-xl font-normal leading-relaxed">
-              We design and engineer high-performance platforms, automated Daraja M-Pesa flows, interactive GIS maps, and bulletproof offline field survey pipelines across East Africa.
-            </p>
-
-            {/* CTA Buttons: Work With Us & Explore Our Work */}
-            <div className="pt-2 flex flex-wrap items-center gap-3">
-              <a
-                href={whatsappUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-sm transition-all shadow-md shadow-emerald-600/20 active:scale-95"
-              >
-                <span>Work With Us</span>
-                <ArrowUpRight className="w-4 h-4" />
-              </a>
-
-              <a
-                href="#projects"
-                className="inline-flex items-center justify-center px-7 py-3.5 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-800 font-semibold text-sm transition-all active:scale-95"
-              >
-                <span>Explore Our Work</span>
-              </a>
-            </div>
-
-            {/* Core Engineering Stack (includes Node.js & Express) */}
-            <div className="pt-8 border-t border-slate-100 space-y-2">
-              <p className="text-xs font-bold uppercase tracking-wider text-slate-400">
-                Core Engineering Stack
-              </p>
-              <div className="flex flex-wrap items-center gap-2.5 text-xs font-semibold text-slate-600">
-                <span className="px-3 py-1.5 rounded-lg bg-slate-50 border border-slate-200/60">Safaricom Daraja</span>
-                <span className="px-3 py-1.5 rounded-lg bg-slate-50 border border-slate-200/60">React & Next.js</span>
-                <span className="px-3 py-1.5 rounded-lg bg-slate-50 border border-slate-200/60">Node.js & Express</span>
-                <span className="px-3 py-1.5 rounded-lg bg-slate-50 border border-slate-200/60">FastAPI & Python</span>
-                <span className="px-3 py-1.5 rounded-lg bg-slate-50 border border-slate-200/60">KoboToolbox & ODK</span>
-                <span className="px-3 py-1.5 rounded-lg bg-slate-50 border border-slate-200/60">Cloudflare Edge</span>
-              </div>
-            </div>
-
-          </div>
-
-          {/* Right Column: Custom Arched Visual Frame */}
-          <div className="lg:col-span-5 relative">
-            <div className="relative mx-auto max-w-md lg:max-w-none">
-              
-              <div className="relative w-full h-[430px] sm:h-[480px] rounded-t-[100px] rounded-b-[40px] overflow-hidden bg-slate-900 shadow-2xl border border-slate-200">
-                {/* Authentic overhead/collaborative engineering photo without face prominence */}
-                <img 
-                   src="/hero-engineers.jpg" 
-                   alt="Engineering systems and digital infrastructure collaboration" 
-                  className="w-full h-full object-cover filter brightness-95 contrast-105 transition-transform duration-700"
-                />
-
-                {/* Subtle dark gradient overlay for text readability */}
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent pointer-events-none" />
-
-                {/* Floating Highlight Card Inside the Visual */}
-                <div className="absolute bottom-6 left-6 right-6 p-4 rounded-2xl bg-white/95 backdrop-blur-md border border-white/40 shadow-xl">
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-[11px] font-bold uppercase tracking-wider text-emerald-700 flex items-center gap-1.5">
-                      <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                      Verified Deployment
-                    </span>
-                    <span className="text-[10px] font-mono text-slate-400">Nairobi, Kenya</span>
-                  </div>
-                  <p className="text-xs font-bold text-slate-900 leading-snug">
-                    Imaragrid & KilimoCast platforms delivering real-time geospatial alerts and climate data.
-                  </p>
-                </div>
-              </div>
-
-              {/* Top-left Floating Metric Badge */}
-              <div className="absolute -top-4 -left-4 bg-white border border-slate-200/80 rounded-2xl px-4 py-2.5 shadow-lg flex items-center gap-2.5">
-                <div className="w-8 h-8 rounded-xl bg-emerald-50 text-emerald-700 flex items-center justify-center font-bold text-sm">
-                  100%
-                </div>
-                <div className="text-left">
-                  <div className="text-[11px] font-bold text-slate-900">Uptime & Field Sync</div>
-                  <div className="text-[10px] text-slate-500">Offline-first architecture</div>
-                </div>
-              </div>
-
-            </div>
-          </div>
-
-        </div>
+    <header className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-slate-950 pt-28 pb-20 border-b border-slate-800">
+      {/* Full-Section Background Image */}
+      <div className="absolute inset-0 z-0">
+        <img
+          src="/hero-engineers.jpg"
+          alt="Technical engineering and field network deployment"
+          className="w-full h-full object-cover object-center filter brightness-[0.38] contrast-110"
+        />
+        {/* High-contrast gradient overlay to ensure perfect text readability */}
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/80 to-slate-950/60" />
       </div>
-    </section>
+
+      {/* Main Content Overlay */}
+      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
+        
+        {/* Top Badge */}
+        <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-slate-900/90 border border-slate-700/80 backdrop-blur-md text-white text-xs font-semibold tracking-wide shadow-sm">
+          <Sparkles className="w-3.5 h-3.5 text-emerald-400" />
+          <span>Digital Engineering & Field Systems</span>
+          <span className="text-slate-600">•</span>
+          <span className="text-slate-300 flex items-center gap-1">
+            <MapPin className="w-3 h-3 text-emerald-400" /> Nairobi, Kenya
+          </span>
+        </div>
+
+        {/* Hero Title */}
+        <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-[1.08] max-w-4xl mx-auto">
+          Building resilient systems for{' '}
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-300 to-emerald-200">
+            real-world operations.
+          </span>
+        </h1>
+
+        {/* Supporting Copy */}
+        <p className="text-base sm:text-lg lg:text-xl text-slate-300 max-w-2xl mx-auto font-normal leading-relaxed">
+          We engineer high-performance web platforms, automated Daraja M-Pesa integrations, geospatial Web GIS mapping, and offline-first field pipelines across East Africa.
+        </p>
+
+        {/* Clean, Non-Repetitive Action Buttons */}
+        <div className="pt-2 flex flex-wrap items-center justify-center gap-4">
+          <a
+            href="#projects"
+            className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-sm transition-all shadow-lg shadow-emerald-950/50 hover:shadow-emerald-500/20 active:scale-95"
+          >
+            <span>Explore Deployed Systems</span>
+            <ArrowDown className="w-4 h-4" />
+          </a>
+
+          <a
+            href="#services"
+            className="inline-flex items-center justify-center px-7 py-3.5 rounded-full bg-slate-800/80 hover:bg-slate-700/90 border border-slate-700 text-slate-200 font-semibold text-sm transition-all backdrop-blur-sm active:scale-95"
+          >
+            <span>Our Capabilities</span>
+          </a>
+        </div>
+
+        {/* Technical Stack Tags Bar */}
+        <div className="pt-10 border-t border-slate-800/70 max-w-3xl mx-auto">
+          <p className="text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-3">
+            Core Engineering Stack
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 text-xs font-medium text-slate-300">
+            <span className="px-3 py-1 rounded-md bg-slate-900/80 border border-slate-800 backdrop-blur-sm">Safaricom Daraja</span>
+            <span className="px-3 py-1 rounded-md bg-slate-900/80 border border-slate-800 backdrop-blur-sm">React & Next.js</span>
+            <span className="px-3 py-1 rounded-md bg-slate-900/80 border border-slate-800 backdrop-blur-sm">Node.js & Express</span>
+            <span className="px-3 py-1 rounded-md bg-slate-900/80 border border-slate-800 backdrop-blur-sm">FastAPI & Python</span>
+            <span className="px-3 py-1 rounded-md bg-slate-900/80 border border-slate-800 backdrop-blur-sm">KoboToolbox & ODK</span>
+            <span className="px-3 py-1 rounded-md bg-slate-900/80 border border-slate-800 backdrop-blur-sm">Cloudflare Edge</span>
+          </div>
+        </div>
+
+      </div>
+    </header>
   );
 }
