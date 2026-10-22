@@ -4,6 +4,7 @@ import Hero from './components/Hero';
 import TechTicker from './components/TechTicker';
 import Services from './components/Services';
 import Standards from './components/Standards';
+import About from './components/About'
 import Projects from './components/Projects';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
@@ -18,6 +19,7 @@ export default function App() {
         <TechTicker />
         <Services />
         <Standards />
+        <About />
         <Projects />
         <Contact />
       </main>
