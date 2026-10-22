@@ -4,18 +4,26 @@
   --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 
-  --color-canvas: #FAFAFA;
-  --color-surface: #FFFFFF;
-  --color-border: #E5E7EB;
-  --color-border-subtle: #F1F5F9;
+  /* Architectural Warm Cream & Charcoal Ink */
+  --color-canvas: #FBF9F5;
+  --color-surface: #F3EFE6;
+  --color-surface-pure: #FFFFFF;
+  --color-border: #E8E2D5;
+  --color-border-subtle: #EFE9DC;
   
-  --color-ink-primary: #0F172A;
-  --color-ink-secondary: #475569;
-  --color-ink-muted: #94A3B8;
+  --color-ink-primary: #15221B;
+  --color-ink-secondary: #4A5B52;
+  --color-ink-muted: #7E9086;
 
-  --color-accent: #059669;
-  --color-accent-hover: #047857;
-  --color-accent-subtle: #ECFDF5;
+  /* Studio Forest Emerald */
+  --color-emerald-deep: #0C2B1E;
+  --color-emerald-studio: #0B5338;
+  --color-emerald-light: #E7F3EC;
+
+  /* Burnt Coral Warmth */
+  --color-coral: #D95D39;
+  --color-coral-hover: #C24C29;
+  --color-coral-subtle: #FDF2EE;
 }
 
 body {
@@ -26,11 +34,29 @@ body {
 
 html {
   scroll-behavior: smooth;
-  background-color: #FAFAFA;
-  color: #0F172A;
+  background-color: #FBF9F5;
+  color: #15221B;
 }
 
 ::selection {
-  background-color: #D1FAE5;
-  color: #065F46;
+  background-color: #FDF2EE;
+  color: #D95D39;
+}
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 32s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
 }
