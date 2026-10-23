@@ -70,22 +70,25 @@ const projects = [
   },
   {
     id: "imaragrid",
-    title: "ImaraGrid Power Monitor",
-    subtitle: "Utility Status & Hazard Resilience",
-    category: "Energy & Climate Tech (Pre-ResiliAI)",
-    status: "Research Archive",
+    title: "Imara Grid — Disaster Resilience Platform",
+    subtitle: "Civic Tech, AI Guidance & Real-Time Evacuation Mapping",
+    category: "Civic Tech / Disaster Resilience",
+    status: "Live Platform",
     url: "https://imaragrid.vercel.app/",
     domain: "imaragrid.vercel.app",
-    location: "Kenya Field Research",
-    summary: "An early-stage resilience dashboard monitoring localized power supply stability to protect sensitive clinic and business equipment.",
-    challenge: "Premises and regional facilities suffer unexpected power outages without advance hazard indicators to protect operations.",
+    location: "47 Counties, Kenya",
+    summary: "A real-time disaster resilience platform for Kenya combining AI safety guidance, community incident reporting, verified shelter mapping, and evacuation routing across all 47 counties.",
+    challenge: "Kenyan communities and responders lack a centralized, real-time platform during floods and hazard events, relying on fragmented social media rumors without verified shelter locations or road-accurate evacuation routes.",
     deliverables: [
-      "Visual grid stability dashboard with real-time status indicators",
-      "Lightweight dashboard that opens fast even on slow 3G connections",
-      "Foundational research that shaped our later disaster alert tools"
+      "Interactive map with verified hospitals, shelters & hazard zones (Leaflet.js + CartoDB dark tiles)",
+      "Multilingual AI Safety Assistant (Groq / Llama 3.1) offering emergency guidance in English, Kiswahili & Sheng",
+      "3-step community incident reporting pipeline with real-time map coordinate pinning",
+      "Weather & flood risk overlay across all 47 counties using OpenWeather API & ISO 22324 severity scoring",
+      "OSRM-powered evacuation navigation routing along actual Kenyan road networks, not straight lines"
     ],
     testimonial: null,
-    tech: ["React", "Analytics", "Vercel Edge", "Vite"]
+    tech: ["React (Vite)", "Leaflet.js", "Groq API (Llama 3.1)", "OSRM Routing", "OpenWeather", "MongoDB Atlas", "Vercel"],
+    sdgs: ["SDG 11: Sustainable Cities", "SDG 13: Climate Action", "SDG 9: Innovation"]
   }
 ];
 
