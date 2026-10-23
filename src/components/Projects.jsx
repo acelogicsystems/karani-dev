@@ -74,21 +74,23 @@ const projects = [
   {
     id: "iclub-portal",
     title: "Campus Innovation Club Portal",
-    subtitle: "Student Feedback & Project Hub (v1)",
+    subtitle: "Feedback Module & Event Management Architecture",
     category: "Campus & Community Systems",
     status: "Live v1",
-    url: "https://iclub-portal-one.vercel.app/",
+    url: "https://iclub-portal.vercel.app/",
     domain: "iclub-portal-one.vercel.app",
-    location: "The Co-operative University of Kenya",
-    summary: "A university innovation platform built to showcase student engineering prototypes and collect structured feedback during demo pitch sessions.",
-    challenge: "Student innovators lacked a central digital home to publish ongoing builds and capture structured evaluations during live presentations.",
+    location: "The Co-operative University ofn Kenya",
+    summary: "A website for university tech club where I built the feedback system and event manager connecting students with club leaders.",
+    challenge: "During demo days and hackathons, clubs leaders had no quick way to collect audience reviews or organize event schedules in one place.",
     deliverables: [
-      "Structured feedback and evaluation conduit for live demonstrations",
-      "Centralized project catalog for student initiatives",
-      "Clean, modern layout that represents the campus tech community"
+      "Built a review tool so event attendees can rate and commenent on student projects live",
+      "Created an event management dashboard for club leaders to post and update schedules",
+      "Added simple forms that handle lots of projects submissions without crashing",
+      "Designed an admin screen to easily read through community feedback"
+
     ],
     testimonial: null,
-    tech: ["Next.js", "React", "REST APIs", "Vercel"]
+    tech: ["Next.js", "React", "Node.js", "Prisma", "Tailwind CSS", "Vercel"]
   }
 ];
 
