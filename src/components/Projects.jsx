@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ExternalLink, ArrowUpRight, CheckCircle2, Quote } from 'lucide-react';
+import { ExternalLink, ArrowUpRight, CheckCircle2, Quote, ChevronLeft, ChevronRight } from 'lucide-react';
 import { siteConfig } from '../data/config';
 
 const projects = [
@@ -47,26 +47,7 @@ const projects = [
       "Automated booking confirmation page with one-click WhatsApp sharing conduit"
     ],
     testimonial: null,
-    tech: ["Next.js 14 (App Router)", "MongoDB Atlas", "Tailwind CSS", "shadcn/ui", "Zustand", "Vercel"]
-  },
-  {
-    id: "iclub-portal",
-    title: "Campus Innovation Club Portal",
-    subtitle: "Student Feedback & Project Hub (v1)",
-    category: "Campus & Community Systems",
-    status: "Live v1",
-    url: "https://iclub-portal-one.vercel.app/",
-    domain: "iclub-portal-one.vercel.app",
-    location: "The Co-operative University of Kenya",
-    summary: "A university innovation platform built to showcase student engineering prototypes and collect structured feedback during demo pitch sessions.",
-    challenge: "Student innovators lacked a central digital home to publish ongoing builds and capture structured evaluations during live presentations.",
-    deliverables: [
-      "Structured feedback and evaluation conduit for live demonstrations",
-      "Centralized project catalog for student initiatives",
-      "Clean, modern layout that represents the campus tech community"
-    ],
-    testimonial: null,
-    tech: ["Next.js", "React", "REST APIs", "Vercel"]
+    tech: ["Next.js 14", "MongoDB Atlas", "Tailwind CSS", "shadcn/ui", "Zustand", "Vercel"]
   },
   {
     id: "imaragrid",
@@ -89,14 +70,35 @@ const projects = [
     testimonial: null,
     tech: ["React (Vite)", "Leaflet.js", "Groq API (Llama 3.1)", "OSRM Routing", "OpenWeather", "MongoDB Atlas", "Vercel"],
     sdgs: ["SDG 11: Sustainable Cities", "SDG 13: Climate Action", "SDG 9: Innovation"]
+  },
+  {
+    id: "iclub-portal",
+    title: "Campus Innovation Club Portal",
+    subtitle: "Student Feedback & Project Hub (v1)",
+    category: "Campus & Community Systems",
+    status: "Live v1",
+    url: "https://iclub-portal-one.vercel.app/",
+    domain: "iclub-portal-one.vercel.app",
+    location: "The Co-operative University of Kenya",
+    summary: "A university innovation platform built to showcase student engineering prototypes and collect structured feedback during demo pitch sessions.",
+    challenge: "Student innovators lacked a central digital home to publish ongoing builds and capture structured evaluations during live presentations.",
+    deliverables: [
+      "Structured feedback and evaluation conduit for live demonstrations",
+      "Centralized project catalog for student initiatives",
+      "Clean, modern layout that represents the campus tech community"
+    ],
+    testimonial: null,
+    tech: ["Next.js", "React", "REST APIs", "Vercel"]
   }
 ];
 
 export default function Projects() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
+  const [touchStart, setTouchStart] = useState(null);
+  const [touchEnd, setTouchEnd] = useState(null);
 
-  // Auto-slide every 6 seconds unless user pauses to read
+  // Auto-slides smoothly every 6 seconds unless user pauses to read
   useEffect(() => {
     if (isPaused) return;
     const timer = setInterval(() => {
@@ -105,6 +107,33 @@ export default function Projects() {
     return () => clearInterval(timer);
   }, [isPaused]);
 
+  // Touch swipe support (Mobile)
+  const handleTouchStart = (e) => {
+    setIsPaused(true);
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchMove = (e) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > 50;
+    const isRightSwipe = distance < -50;
+
+    if (isLeftSwipe) {
+      setActiveIndex((prev) => (prev + 1) % projects.length);
+    } else if (isRightSwipe) {
+      setActiveIndex((prev) => (prev - 1 + projects.length) % projects.length);
+    }
+  };
+
+  const nextSlide = () => setActiveIndex((prev) => (prev + 1) % projects.length);
+  const prevSlide = () => setActiveIndex((prev) => (prev - 1 + projects.length) % projects.length);
+
   const current = projects[activeIndex];
   const whatsappUrl = `https://wa.me/${siteConfig.whatsappNumber}?text=Hello%20Brian,%20I'd%20like%20to%20discuss%20a%20project%20similar%20to%20${encodeURIComponent(current.title)}.`;
 
@@ -112,36 +141,29 @@ export default function Projects() {
     <section id="projects" className="relative bg-[#FBF9F5] py-24 sm:py-28 px-4 sm:px-6 lg:px-8 border-b border-[#E8E2D5]">
       <div className="max-w-7xl mx-auto">
         
-        {/* Section Header */}
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-12 sm:mb-16">
-          <div className="max-w-2xl">
-            <div className="flex items-center gap-2 text-[11px] font-mono uppercase tracking-widest text-[#D95D39] font-bold mb-3">
-              <span>Selected Work</span>
-              <span className="text-[#E8E2D5]">/</span>
-              <span className="text-[#4A5B52]">Live Deployments</span>
-            </div>
-            <h2 className="text-3xl sm:text-5xl font-extrabold text-[#15221B] tracking-tight leading-tight">
-              Real systems we have built and launched.
-            </h2>
-            <p className="mt-3 text-base text-[#4A5B52]">
-              Explore live platforms, client websites, and SaaS products in active operation.
-            </p>
+        {/* Section Header (Clean, no 'auto-sliding' pill) */}
+        <div className="max-w-2xl mb-12 sm:mb-16">
+          <div className="flex items-center gap-2 text-[11px] font-mono uppercase tracking-widest text-[#D95D39] font-bold mb-3">
+            <span>Selected Work</span>
+            <span className="text-[#E8E2D5]">/</span>
+            <span className="text-[#4A5B52]">Live Deployments</span>
           </div>
-
-          {/* Reading Indicator */}
-          <div className="text-xs font-mono text-[#7E9086] flex items-center gap-2">
-            <span className={`w-2 h-2 rounded-full ${isPaused ? 'bg-[#D95D39]' : 'bg-[#0B5338] animate-pulse'}`} />
-            <span>{isPaused ? 'Paused for reading' : 'Auto-sliding'}</span>
-          </div>
+          <h2 className="text-3xl sm:text-5xl font-extrabold text-[#15221B] tracking-tight leading-tight">
+            Real systems we have built and launched.
+          </h2>
+          <p className="mt-3 text-base text-[#4A5B52]">
+            Explore live platforms, client websites, and civic tech systems in active operation.
+          </p>
         </div>
 
-        {/* Carousel Viewport (Hover or Touch stops auto-sliding) */}
+        {/* Carousel Viewport with Native Hover/Touch pause & Swipe */}
         <div 
-          className="overflow-hidden rounded-3xl"
+          className="relative group/carousel overflow-hidden rounded-3xl"
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
-          onTouchStart={() => setIsPaused(true)}
-          onTouchEnd={() => setIsPaused(false)}
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
         >
           <div 
             className="flex transition-transform duration-700 ease-in-out"
@@ -167,16 +189,21 @@ export default function Projects() {
                               <span className="w-2.5 h-2.5 rounded-full bg-[#0B5338]" />
                             </div>
                             
-                            <div className="flex-1 max-w-xs truncate text-[11px] font-mono text-[#4A5B52] bg-white px-3 py-1 rounded-md text-center border border-[#E8E2D5]/80">
+                            <a 
+                              href={proj.url} 
+                              target="_blank" 
+                              rel="noopener noreferrer"
+                              className="flex-1 max-w-xs truncate text-[11px] font-mono text-[#4A5B52] hover:text-[#0B5338] bg-white px-3 py-1 rounded-md text-center border border-[#E8E2D5]/80 transition-colors"
+                            >
                               https://{proj.domain}
-                            </div>
+                            </a>
                             
                             <div className="w-10 text-right">
                               <span className="w-2 h-2 inline-block rounded-full bg-emerald-500 animate-pulse" />
                             </div>
                           </div>
 
-                          {/* Screenshot Image Container */}
+                          {/* Screenshot Container */}
                           <div className="relative aspect-[16/10] bg-[#15221B] overflow-hidden group">
                             <img
                               src={screenshotUrl}
@@ -213,7 +240,7 @@ export default function Projects() {
 
                         {/* Location & Status Line */}
                         <div className="flex items-center justify-between text-xs font-mono text-[#7E9086] px-1">
-                          <span>Focus: {proj.location}</span>
+                          <span>Coverage: {proj.location}</span>
                           <span className="text-[#0B5338] font-bold">{proj.status}</span>
                         </div>
                       </div>
@@ -253,7 +280,20 @@ export default function Projects() {
                           </ul>
                         </div>
 
-                        {/* Optional Client Testimonial */}
+                        {/* Optional SDGs or Testimonial */}
+                        {proj.sdgs && (
+                          <div className="flex flex-wrap gap-1.5 pt-1">
+                            {proj.sdgs.map((sdg, sIdx) => (
+                              <span 
+                                key={sIdx}
+                                className="px-2.5 py-0.5 rounded-full text-[10px] font-mono font-semibold bg-[#0B5338]/10 text-[#0B5338] border border-[#0B5338]/20"
+                              >
+                                {sdg}
+                              </span>
+                            ))}
+                          </div>
+                        )}
+
                         {proj.testimonial && (
                           <div className="p-4 rounded-xl bg-[#FBF9F5] border border-[#E8E2D5] space-y-2">
                             <Quote className="w-4 h-4 text-[#D95D39]" />
@@ -266,7 +306,7 @@ export default function Projects() {
                           </div>
                         )}
 
-                        {/* Tech Stack Pills */}
+                        {/* Tech Stack Badges */}
                         <div className="flex flex-wrap gap-1.5 pt-1">
                           {proj.tech.map((t, tIdx) => (
                             <span 
@@ -278,18 +318,6 @@ export default function Projects() {
                           ))}
                         </div>
 
-                        {/* Launch Button */}
-                        <div className="pt-2">
-                          <a
-                            href={proj.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#0B5338] hover:bg-[#073826] text-white text-xs font-bold tracking-wide transition-all shadow-xs active:scale-95"
-                          >
-                            <span>Open {proj.domain}</span>
-                            <ExternalLink className="w-3.5 h-3.5" />
-                          </a>
-                        </div>
                       </div>
 
                     </div>
@@ -298,6 +326,23 @@ export default function Projects() {
               );
             })}
           </div>
+
+          {/* Minimalist Side Arrow Controls (Appear on hover) */}
+          <button
+            onClick={prevSlide}
+            aria-label="Previous project"
+            className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/90 border border-[#E8E2D5] text-[#15221B] flex items-center justify-center opacity-0 group-hover/carousel:opacity-100 transition-opacity hover:bg-white shadow-md cursor-pointer"
+          >
+            <ChevronLeft className="w-5 h-5" />
+          </button>
+          
+          <button
+            onClick={nextSlide}
+            aria-label="Next project"
+            className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/90 border border-[#E8E2D5] text-[#15221B] flex items-center justify-center opacity-0 group-hover/carousel:opacity-100 transition-opacity hover:bg-white shadow-md cursor-pointer"
+          >
+            <ChevronRight className="w-5 h-5" />
+          </button>
         </div>
 
         {/* Carousel Slide Indicators */}
