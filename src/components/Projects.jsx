@@ -91,14 +91,18 @@ const projects = [
 
 export default function Projects() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
 
-  // Automatically slide to the next project every 5 seconds
+  // Auto-slides every 6 seconds ONLY when not hovered/paused
   useEffect(() => {
+    if (isPaused) return;
+
     const timer = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % projects.length);
-    }, 5000);
+    }, 6000);
+
     return () => clearInterval(timer);
-  }, []);
+  }, [isPaused]);
 
   const whatsappUrl = `https://wa.me/${siteConfig.whatsappNumber}?text=Hello%20Brian,%20I'd%20like%20to%20discuss%20a%20project.`;
 
@@ -106,28 +110,42 @@ export default function Projects() {
     <section id="projects" className="relative bg-[#FBF9F5] py-24 sm:py-28 px-4 sm:px-6 lg:px-8 border-b border-[#E8E2D5]">
       <div className="max-w-7xl mx-auto">
         
-        {/* Simple, Clear Header */}
-        <div className="max-w-2xl mb-12 sm:mb-16">
-          <div className="flex items-center gap-2 text-[11px] font-mono uppercase tracking-widest text-[#D95D39] font-bold mb-3">
-            <span>Our Work</span>
-            <span className="text-[#E8E2D5]">/</span>
-            <span className="text-[#4A5B52]">Live Websites & Apps</span>
+        {/* Header */}
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-12 sm:mb-16">
+          <div className="max-w-2xl">
+            <div className="flex items-center gap-2 text-[11px] font-mono uppercase tracking-widest text-[#D95D39] font-bold mb-3">
+              <span>Our Work</span>
+              <span className="text-[#E8E2D5]">/</span>
+              <span className="text-[#4A5B52]">Live Websites & Apps</span>
+            </div>
+            <h2 className="text-3xl sm:text-5xl font-extrabold text-[#15221B] tracking-tight leading-tight">
+              Real systems we have built and launched.
+            </h2>
+            <p className="mt-3 text-base text-[#4A5B52]">
+              Take a look at some of the platforms we have designed, coded, and deployed online.
+            </p>
           </div>
-          <h2 className="text-3xl sm:text-5xl font-extrabold text-[#15221B] tracking-tight leading-tight">
-            Real systems we have built and launched.
-          </h2>
-          <p className="mt-3 text-base text-[#4A5B52]">
-            Take a look at some of the platforms we have designed, coded, and deployed online.
-          </p>
+
+          {/* Reading Status Indicator */}
+          <div className="text-xs font-mono text-[#7E9086] flex items-center gap-2">
+            <span className={`w-2 h-2 rounded-full ${isPaused ? 'bg-[#D95D39]' : 'bg-[#0B5338] animate-pulse'}`} />
+            <span>{isPaused ? 'Paused for reading' : 'Auto-playing'}</span>
+          </div>
         </div>
 
-        {/* The Carousel Container */}
-        <div className="overflow-hidden rounded-3xl">
+        {/* Card Viewport: Pauses automatically on hover or touch */}
+        <div 
+          className="overflow-hidden rounded-3xl"
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+          onTouchStart={() => setIsPaused(true)}
+          onTouchEnd={() => setIsPaused(false)}
+        >
           <div 
             className="flex transition-transform duration-700 ease-in-out"
             style={{ transform: `translateX(-${activeIndex * 100}%)` }}
           >
-            {projects.map((proj, idx) => (
+            {projects.map((proj) => (
               <div 
                 key={proj.id}
                 className="w-full flex-shrink-0"
@@ -221,17 +239,20 @@ export default function Projects() {
           </div>
         </div>
 
-        {/* Subtle Slide Indicators at the Bottom */}
+        {/* Direct Pill Selectors */}
         <div className="flex justify-center items-center gap-2 mt-8">
-          {projects.map((_, idx) => (
+          {projects.map((proj, idx) => (
             <button
               key={idx}
-              onClick={() => setActiveIndex(idx)}
-              aria-label={`Go to project ${idx + 1}`}
-              className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
+              onClick={() => {
+                setActiveIndex(idx);
+                setIsPaused(true); // clicking a dot lets the user study that specific card
+              }}
+              aria-label={`Jump to ${proj.title}`}
+              className={`h-2.5 rounded-full transition-all duration-300 cursor-pointer ${
                 activeIndex === idx 
-                  ? 'w-8 bg-[#0B5338]' 
-                  : 'w-2 bg-[#E8E2D5] hover:bg-[#A0AFA7]'
+                  ? 'w-10 bg-[#0B5338]' 
+                  : 'w-2.5 bg-[#E8E2D5] hover:bg-[#A0AFA7]'
               }`}
             />
           ))}
