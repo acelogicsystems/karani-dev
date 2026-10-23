@@ -5,12 +5,12 @@ import { siteConfig } from '../data/config';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const whatsappUrl = `https://wa.me/${siteConfig.whatsappNumber}?text=Hello%20${encodeURIComponent(siteConfig.name)},%20I'd%20like%20to%20discuss%20an%20engineering%20project.`;
+  const whatsappUrl = `https://wa.me/${siteConfig.whatsappNumber}?text=Hello%20${encodeURIComponent(siteConfig.name)},%20I'd%20like%20to%20discuss%20a%20project.`;
 
   const navLinks = [
-    { name: 'Services', href: '#services' },
-    { name: 'Standards', href: '#standards' },
     { name: 'Projects', href: '#projects' },
+    { name: 'Services', href: '#services' },
+    { name: 'About', href: '#about' },
     { name: 'Contact', href: '#contact' },
   ];
 
