@@ -29,23 +29,25 @@ const projects = [
     tech: ["React (Vite)", "Tailwind CSS", "FormSubmit", "Netlify CDN"]
   },
   {
-    id: "booking-saas",
-    title: "Hazel Booking & Appointments",
-    subtitle: "Automated Service Reservation Engine",
-    category: "Online Booking & Commerce",
-    status: "Live Demo",
+    id: "bookease",
+    title: "BookEase — Service Booking SaaS",
+    subtitle: "Multi-Tenant Scheduling Platform for Kenyan Businesses",
+    category: "Full-Stack SaaS & Commerce",
+    status: "Ongoing MVP (Live)",
     url: "https://booking-saas-hazel.vercel.app/",
     domain: "booking-saas-hazel.vercel.app",
     location: "Nairobi / Remote",
-    summary: "An automated appointment scheduling platform where clients can check available calendar slots and reserve dates without back-and-forth messaging.",
-    challenge: "Service businesses lose bookings daily when customers have to wait hours for manual confirmation over phone calls or text chats.",
+    summary: "A multi-tenant SaaS platform empowering barbershops, salons, photographers, and Kenyan service providers to accept client bookings 24/7 through a shareable link.",
+    challenge: "Small service businesses lose revenue through scattered WhatsApp chats and missed calls, lacking double-booking prevention, calendar sync, or after-hours intake.",
     deliverables: [
-      "Real-time interactive calendar with instant slot availability",
-      "Frictionless reservation intake engineered for low mobile data",
-      "Fast server-side rendering deployed on edge global servers"
+      "Secure JWT authentication with bcrypt password encryption",
+      "Business owner dashboard tracking bookings, real-time revenue & completion rates",
+      "4-step public booking flow (Service → Date & Time → Details → Confirmation)",
+      "Database-level indexed constraints to prevent duplicate or conflicting bookings",
+      "Automated booking confirmation page with one-click WhatsApp sharing conduit"
     ],
     testimonial: null,
-    tech: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"]
+    tech: ["Next.js 14 (App Router)", "MongoDB Atlas", "Tailwind CSS", "shadcn/ui", "Zustand", "Vercel"]
   },
   {
     id: "iclub-portal",
@@ -91,7 +93,7 @@ export default function Projects() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
 
-  // Auto-slides every 6 seconds unless paused
+  // Auto-slide every 6 seconds unless user pauses to read
   useEffect(() => {
     if (isPaused) return;
     const timer = setInterval(() => {
@@ -119,7 +121,7 @@ export default function Projects() {
               Real systems we have built and launched.
             </h2>
             <p className="mt-3 text-base text-[#4A5B52]">
-              Explore live platforms, client websites, and tools in active production.
+              Explore live platforms, client websites, and SaaS products in active operation.
             </p>
           </div>
 
@@ -130,7 +132,7 @@ export default function Projects() {
           </div>
         </div>
 
-        {/* Carousel Viewport (Hover/Touch stops timer) */}
+        {/* Carousel Viewport (Hover or Touch stops auto-sliding) */}
         <div 
           className="overflow-hidden rounded-3xl"
           onMouseEnter={() => setIsPaused(true)}
@@ -143,7 +145,6 @@ export default function Projects() {
             style={{ transform: `translateX(-${activeIndex * 100}%)` }}
           >
             {projects.map((proj) => {
-              // Microlink live automated screenshot generator URL
               const screenshotUrl = `https://api.microlink.io/?url=${encodeURIComponent(proj.url)}&screenshot=true&meta=false&embed=screenshot.url`;
 
               return (
@@ -155,7 +156,7 @@ export default function Projects() {
                       <div className="lg:col-span-6 space-y-4">
                         <div className="rounded-2xl border border-[#E8E2D5] bg-[#F3EFE6] overflow-hidden shadow-lg shadow-[#0B5338]/5">
                           
-                          {/* Browser Window Chrome Header */}
+                          {/* Browser Window Header Chrome */}
                           <div className="px-4 py-3 bg-[#EAE5D9] border-b border-[#E8E2D5] flex items-center justify-between gap-4">
                             <div className="flex items-center gap-1.5">
                               <span className="w-2.5 h-2.5 rounded-full bg-[#D95D39]/80" />
@@ -172,7 +173,7 @@ export default function Projects() {
                             </div>
                           </div>
 
-                          {/* Screenshot Container */}
+                          {/* Screenshot Image Container */}
                           <div className="relative aspect-[16/10] bg-[#15221B] overflow-hidden group">
                             <img
                               src={screenshotUrl}
@@ -180,7 +181,6 @@ export default function Projects() {
                               loading="lazy"
                               className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
                               onError={(e) => {
-                                // Fallback if screenshot service is unreachable
                                 e.target.style.display = 'none';
                                 e.target.nextSibling.style.display = 'flex';
                               }}
@@ -188,12 +188,12 @@ export default function Projects() {
                             
                             {/* Fallback Display */}
                             <div className="hidden absolute inset-0 bg-[#0B5338] text-white p-6 flex-col justify-between">
-                              <span className="text-xs font-mono uppercase tracking-widest text-emerald-300">Live Production Preview</span>
+                              <span className="text-xs font-mono uppercase tracking-widest text-emerald-300">Live Preview</span>
                               <h4 className="text-xl font-bold">{proj.title}</h4>
                               <span className="text-xs font-mono">{proj.domain}</span>
                             </div>
 
-                            {/* Floating Link Overlay */}
+                            {/* Hover Overlay Button */}
                             <a
                               href={proj.url}
                               target="_blank"
@@ -201,21 +201,21 @@ export default function Projects() {
                               className="absolute inset-0 bg-[#0B5338]/0 hover:bg-[#0B5338]/40 transition-colors flex items-center justify-center opacity-0 hover:opacity-100"
                             >
                               <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white text-[#15221B] font-bold text-xs shadow-lg">
-                                <span>Inspect Live Website</span>
+                                <span>Inspect Live Platform</span>
                                 <ExternalLink className="w-3.5 h-3.5" />
                               </span>
                             </a>
                           </div>
                         </div>
 
-                        {/* Direct Metadata Line under Preview */}
+                        {/* Location & Status Line */}
                         <div className="flex items-center justify-between text-xs font-mono text-[#7E9086] px-1">
-                          <span>Location: {proj.location}</span>
+                          <span>Focus: {proj.location}</span>
                           <span className="text-[#0B5338] font-bold">{proj.status}</span>
                         </div>
                       </div>
 
-                      {/* Right: Plain English Details & Breakdown */}
+                      {/* Right: Project Details & Deliverables */}
                       <div className="lg:col-span-6 space-y-5">
                         <div>
                           <div className="flex items-center gap-2 mb-1">
@@ -238,10 +238,10 @@ export default function Projects() {
                         {/* Deliverables Checklist */}
                         <div className="space-y-2 pt-2 border-t border-[#F3EFE6]">
                           <h4 className="text-[11px] font-mono uppercase tracking-wider text-[#7E9086] font-bold">
-                            What We Delivered
+                            Key Architectural Deliverables
                           </h4>
                           <ul className="space-y-1.5">
-                            {proj.deliverables.slice(0, 4).map((item, dIdx) => (
+                            {proj.deliverables.slice(0, 5).map((item, dIdx) => (
                               <li key={dIdx} className="flex items-start gap-2.5 text-xs text-[#15221B] leading-relaxed">
                                 <CheckCircle2 className="w-3.5 h-3.5 text-[#0B5338] mt-0.5 flex-shrink-0" />
                                 <span>{item}</span>
@@ -275,7 +275,7 @@ export default function Projects() {
                           ))}
                         </div>
 
-                        {/* Primary Button */}
+                        {/* Launch Button */}
                         <div className="pt-2">
                           <a
                             href={proj.url}
@@ -297,7 +297,7 @@ export default function Projects() {
           </div>
         </div>
 
-        {/* Carousel Indicators */}
+        {/* Carousel Slide Indicators */}
         <div className="flex justify-center items-center gap-2 mt-8">
           {projects.map((proj, idx) => (
             <button
@@ -316,7 +316,7 @@ export default function Projects() {
           ))}
         </div>
 
-        {/* Bottom Callout Banner */}
+        {/* Bottom Banner */}
         <div className="mt-14 rounded-2xl bg-[#0B5338] text-white p-8 sm:p-10 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xl shadow-[#0B5338]/10">
           <div>
             <h3 className="text-xl sm:text-2xl font-bold tracking-tight">
