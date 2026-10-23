@@ -79,7 +79,7 @@ export default function About() {
                   "Whether you are automating millions of shillings through Daraja M-Pesa, mapping matatu corridors, or deploying an early warning alert system, you need clean architecture and someone who answers the phone."
                 </p>
                 <p className="font-mono text-[11px] text-emerald-300">
-                  Direct Line: +254 758 244 586 <br />
+                  Direct Line: +254 711 317 540 <br />
                   Location: Nairobi / Embu / Remote
                 </p>
               </div>
