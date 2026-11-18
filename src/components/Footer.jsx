@@ -106,7 +106,7 @@ export default function Footer() {
             </h4>
             <div className="text-sm text-[#A0AFA7] space-y-1 leading-relaxed">
               <p className="text-white font-medium">Nairobi & Embu, Kenya</p>
-              <p>Direct: +254 758 244 586</p>
+              <p>Direct: +254 711 317 540</p>
               <p>Email: briangicovi6@gmail.com</p>
               <p className="pt-2 text-xs font-mono text-emerald-400">
                 ● Accepting new client projects
@@ -118,7 +118,7 @@ export default function Footer() {
 
         {/* Bottom Bar: Copyright & Back to Top */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-[#7E9086]">
-          <p>© {currentYear} Karani Systems. Built with pride in Kenya.</p>
+          <p>© {currentYear} Karani Systems. Forged for the field.</p>
 
           <button
             onClick={scrollToTop}
