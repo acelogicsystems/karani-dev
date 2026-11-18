@@ -45,7 +45,7 @@ export default function Footer() {
 
               {/* LinkedIn */}
               <a
-                href="https://linkedin.com/in/brian-karani"
+                href="https://www.linkedin.com/public-profile/settings/?trk=d_flagship3_profile_self_view_public_profile&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base%3Bz422t0T9QG6F2unAR5KnsA%3D%3D"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"
