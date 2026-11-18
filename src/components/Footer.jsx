@@ -32,7 +32,7 @@ export default function Footer() {
             <div className="flex items-center gap-3 pt-2">
               {/* GitHub */}
               <a
-                href="https://github.com/BrianGicovi"
+                href="https://github.com/acelogicsystems"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="GitHub"
